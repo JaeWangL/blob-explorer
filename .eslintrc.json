@@ -1,0 +1,15 @@
+{
+  "extends": [
+    "airbnb",
+    "airbnb/hooks",
+    "plugin:import/recommended",
+    "plugin:import/typescript",
+    "plugin:jest/recommended",
+    "next",
+    "prettier"
+  ],
+  "rules": {
+    "react/function-component-definition": "off",
+    "react/no-unescaped-entities": "off"
+  }
+}

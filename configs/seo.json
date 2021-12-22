@@ -1,0 +1,26 @@
+{
+  "title": "Blob Explorer | Home",
+  "titleTemplate": "%s - Blob Explorer",
+  "description": "A azure blob storage explorer with next.js",
+  "openGraph": {
+    "title": "Blob Explorer | Home",
+    "description": "A azure blob storage explorer with next.js",
+    "type": "website",
+    "locale": "en_US",
+    "url": "https://google.com",
+    "site_name": "Blob Explorer",
+    "images": [
+      {
+        "url": "/card.png",
+        "width": 800,
+        "height": 600,
+        "alt": "Blob Explorer"
+      }
+    ]
+  },
+  "twitter": {
+    "handle": "@nextjs",
+    "site": "@nextjs",
+    "cardType": "summary_large_image"
+  }
+}
