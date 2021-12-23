@@ -16,6 +16,7 @@
     "node": ">=14.x"
   },
   "dependencies": {
+    "@azure/storage-blob": "^12.8.0",
     "@emotion/react": "^11.7.1",
     "@emotion/server": "^11.4.0",
     "@emotion/styled": "^11.6.0",
@@ -26,7 +27,8 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-fast-compare": "^3.2.0",
-    "recoil": "^0.5.2"
+    "recoil": "^0.5.2",
+    "swr": "^1.1.1"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^12.0.7",
