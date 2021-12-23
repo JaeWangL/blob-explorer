@@ -1,19 +1,19 @@
 import { AppProps } from 'next/app';
-import NextHead from 'next/head'
+import NextHead from 'next/head';
 import { useRouter } from 'next/router';
 import { appWithTranslation } from 'next-i18next';
-import { DefaultSeo } from 'next-seo'
+import { DefaultSeo } from 'next-seo';
 import { useEffect, useState } from 'react';
-import { CacheProvider, EmotionCache } from '@emotion/react';
+import { CacheProvider, EmotionCache, Global } from '@emotion/react';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import config from '@configs/seo.json'
-import { defaultTheme } from '@lib/styles/theme';
+import config from '@configs/seo.json';
+import { defaultTheme, globalStyles } from '@lib/styles';
 import { createEmotionCache } from '@utils/index';
 
-interface IMyAppProps extends AppProps {
+type MyAppProps = {
   emotionCache?: EmotionCache;
-}
+} & AppProps;
 
 interface IMyAppStates {
   isRouteChanging: boolean;
@@ -25,7 +25,7 @@ const initMyAppStates: IMyAppStates = {
   loadingKey: 0,
 };
 
-function MyApp(props: IMyAppProps): JSX.Element {
+function MyApp(props: MyAppProps): JSX.Element {
   const { Component, emotionCache = createEmotionCache(), pageProps } = props;
   const router = useRouter();
   const [state, setState] = useState<IMyAppStates>(initMyAppStates);
@@ -66,10 +66,15 @@ function MyApp(props: IMyAppProps): JSX.Element {
       </NextHead>
       <ThemeProvider theme={defaultTheme}>
         <CssBaseline />
+        <Global styles={globalStyles} />
         <Component {...pageProps} />
       </ThemeProvider>
     </CacheProvider>
   );
 }
+
+MyApp.defaultProps = {
+  emotionCache: undefined,
+};
 
 export default appWithTranslation(MyApp);
