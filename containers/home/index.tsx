@@ -19,11 +19,6 @@ function Home(): JSX.Element {
           <li>{n}</li>
         ))}
       </ul>
-      <ul>
-        {blobNames.map((n) => (
-          <li>{n}</li>
-        ))}
-      </ul>
     </div>
   );
 }
