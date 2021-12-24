@@ -15,6 +15,11 @@ const ContainerPage: NextPage = () => {
   );
 };
 
+export const getStaticPaths = async () => ({
+  paths: [], // indicates that no page needs be created at build time
+  fallback: 'blocking', // indicates the type of fallback
+});
+
 export const getStaticProps = async ({ locale }: { locale: string }) => ({
   props: {
     ...(await serverSideTranslations(locale, ['common'])),
