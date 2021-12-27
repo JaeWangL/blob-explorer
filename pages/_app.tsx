@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { appWithTranslation } from 'next-i18next';
 import { DefaultSeo } from 'next-seo';
 import { useEffect, useState } from 'react';
+import { RecoilRoot } from 'recoil';
 import { CacheProvider, EmotionCache, Global } from '@emotion/react';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -65,9 +66,12 @@ function MyApp(props: MyAppProps): JSX.Element {
         <link rel="manifest" href="/site.webmanifest" key="site-manifest" />
       </NextHead>
       <ThemeProvider theme={defaultTheme}>
-        <CssBaseline />
-        <Global styles={globalStyles} />
-        <Component {...pageProps} />
+        <RecoilRoot>
+          {/* TODO: Add `Dev tools` and `ExternalStatePortal` for Recoil */}
+          <CssBaseline />
+          <Global styles={globalStyles} />
+          <Component {...pageProps} />
+        </RecoilRoot>
       </ThemeProvider>
     </CacheProvider>
   );
