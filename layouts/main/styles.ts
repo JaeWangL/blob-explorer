@@ -1,3 +1,4 @@
+import { css, SerializedStyles } from '@emotion/react';
 import styled from '@emotion/styled';
 import { breakPoints, colors } from '@lib/styles';
 
@@ -14,7 +15,7 @@ export const MainWrapper = styled.div`
 `;
 
 type MainContainerProps = {
-  showSidebar: boolean;
+  isShowMenu: boolean;
 };
 export const MainContainer = styled.div<MainContainerProps>`
   position: absolute;
@@ -29,7 +30,11 @@ export const MainContainer = styled.div<MainContainerProps>`
     left: 240px;
   }
   @media (max-width: 991.98px) {
-    ${(props) => props.showSidebar ?? 'transform: translateX(240px)'}
+    ${(props): boolean | SerializedStyles =>
+      props.isShowMenu &&
+      css`
+        transform: translateX(240px);
+      `};
   }
 `;
 

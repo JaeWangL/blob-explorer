@@ -1,16 +1,16 @@
-import Document, { Head, Html, Main, NextScript } from 'next/document';
+import Document, { DocumentInitialProps, Head, Html, Main, NextScript } from 'next/document';
 import { Children } from 'react';
 import createEmotionServer from '@emotion/server/create-instance';
-import { defaultTheme } from '@lib/styles/theme';
+import { defaultMaterialTheme } from '@lib/styles/theme';
 import { createEmotionCache } from '@utils/index';
 
 class MyDocument extends Document {
-  render() {
+  render(): JSX.Element {
     return (
       <Html>
         <Head>
           {/* PWA primary color */}
-          <meta name="theme-color" content={defaultTheme.palette.primary.main} />
+          <meta name="theme-color" content={defaultMaterialTheme.palette.primary.main} />
           <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
           <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
         </Head>
@@ -25,7 +25,7 @@ class MyDocument extends Document {
 
 // `getInitialProps` belongs to `_document` (instead of `_app`),
 // it's compatible with static-site generation (SSG).
-MyDocument.getInitialProps = async (ctx) => {
+MyDocument.getInitialProps = async (ctx): Promise<DocumentInitialProps> => {
   // Resolution order
   //
   // On the server:
@@ -55,10 +55,10 @@ MyDocument.getInitialProps = async (ctx) => {
   const cache = createEmotionCache();
   const { extractCriticalToChunks } = createEmotionServer(cache);
 
-  ctx.renderPage = () =>
+  ctx.renderPage = (): any =>
     originalRenderPage({
       enhanceApp: (App: any) =>
-        function EnhanceApp(props) {
+        function EnhanceApp(props): any {
           return <App emotionCache={cache} {...props} />;
         },
     });
