@@ -5,15 +5,19 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
   if (!process.env.BLOB_CONNECTION_STRING) {
     return;
   }
-
   const { containerName } = req.query;
-  const blobServiceClient = BlobServiceClient.fromConnectionString(process.env.BLOB_CONNECTION_STRING);
-  const containerClient = blobServiceClient.getContainerClient(containerName as string);
 
-  const list = [];
-  for await (const blob of containerClient.listBlobsFlat()) {
-    list.push(blob.name);
+  try {
+    const blobServiceClient = BlobServiceClient.fromConnectionString(process.env.BLOB_CONNECTION_STRING);
+    const containerClient = blobServiceClient.getContainerClient(containerName as string);
+
+    const list = [];
+    for await (const blob of containerClient.listBlobsFlat()) {
+      list.push(blob.name);
+    }
+
+    res.status(200).json(list);
+  } catch (e) {
+    res.status(500).json('Blob API error');
   }
-
-  res.status(200).json(list);
 }
