@@ -1,5 +1,6 @@
 import { memo } from 'react';
 import IsEqual from 'react-fast-compare';
+import { CustomScrollBar } from '@components/index';
 import { BodyWrapper, MenuWrapper, HeaderWrapper } from './styles';
 
 type MenuLeftProps = {
@@ -14,9 +15,11 @@ function MenuLeft(props: MenuLeftProps): JSX.Element {
       <HeaderWrapper>
         <p>Header</p>
       </HeaderWrapper>
-      <BodyWrapper>
-        <p>Body</p>
-      </BodyWrapper>
+      <CustomScrollBar>
+        <BodyWrapper>
+          <p>Body</p>
+        </BodyWrapper>
+      </CustomScrollBar>
     </MenuWrapper>
   );
 }

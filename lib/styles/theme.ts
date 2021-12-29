@@ -25,6 +25,7 @@ export const defaultTheme = {
     body: 1.5,
     heading: 1.25,
   },
+  transition: 'all 0.4s ease 0s',
 };
 
 export const defaultMaterialTheme = createTheme({

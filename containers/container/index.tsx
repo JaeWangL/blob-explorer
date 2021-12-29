@@ -23,7 +23,7 @@ function Containers(props: ContainersProps): JSX.Element {
       <p>{containerName}</p>
       <ul>
         {blobs.map((blob) => (
-          <li>{blob}</li>
+          <li key={blob}>{blob}</li>
         ))}
       </ul>
     </div>

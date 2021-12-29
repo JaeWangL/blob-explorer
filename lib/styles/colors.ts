@@ -24,6 +24,7 @@ export const colors = {
   light: '#e5e9f2',
   dark: '#3b4863',
   background: color(gray900).darken(5).rgb().string(),
+  white: '#ffffff',
   text: '#ffffff',
   text2: gray300,
   text3: '#8392a5',
