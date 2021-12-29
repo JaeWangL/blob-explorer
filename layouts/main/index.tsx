@@ -3,15 +3,17 @@ import IsEqual from 'react-fast-compare';
 import { useRecoilValueLoadable } from 'recoil';
 import { containerNamesSelector } from '@lib/recoil';
 import Footer from './footer';
+import Header from './header';
 import MenuLeft from './menuLeft';
 import { MainContainer, MainWrapper } from './styles';
 
 type MainLayoutProps = {
   children: JSX.Element;
+  showFooter?: boolean;
 };
 
 function MainLayout(props: MainLayoutProps): JSX.Element {
-  const { children } = props;
+  const { children, showFooter } = props;
   const containers = useRecoilValueLoadable(containerNamesSelector);
 
   if (containers.state === 'loading') {
@@ -21,14 +23,19 @@ function MainLayout(props: MainLayoutProps): JSX.Element {
     return <p>Error...</p>;
   }
   return (
-    <div>
+    <>
+      <Header />
       <MainWrapper className="wrapper">
         <MenuLeft isShow />
         <MainContainer isShowMenu>{children}</MainContainer>
       </MainWrapper>
-      <Footer />
-    </div>
+      {showFooter && <Footer />}
+    </>
   );
 }
+
+MainLayout.defaultProps = {
+  showFooter: false,
+} as MainLayoutProps;
 
 export default memo(MainLayout, IsEqual);
