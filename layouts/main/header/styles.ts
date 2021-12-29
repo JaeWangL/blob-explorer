@@ -44,7 +44,7 @@ export const LogoContainer = styled.div`
   }
 `;
 
-export const StyledLogo = styled(Link)`
+export const StyledLogo = styled.a`
   font-weight: 700;
   font-size: 22px;
   letter-spacing: -1px;
