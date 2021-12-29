@@ -1,7 +1,33 @@
 import { red } from '@mui/material/colors';
 import { createTheme } from '@mui/material/styles';
 
-export const defaultTheme = createTheme({
+export const defaultTheme = {
+  fontSize: {
+    body: '0.875rem',
+    h1: ['2.1875rem', '2.1875rem', '2.1875rem', '2.1875rem'],
+    h2: ['1.75rem', '1.75rem', '1.75rem'],
+    h3: ['1.53125rem', '1.53125rem'],
+    h4: ['1.3125rem', '1.3125rem'],
+    h5: ['1.09375rem', '1.09375rem'],
+    h6: ['0.875rem', '0.875rem'],
+  },
+  fonts: {
+    body: `'IBM Plex Sans', sans-serif`,
+    heading: `'IBM Plex Sans', sans-serif`,
+    interUi: `-apple-system, BlinkMacSystemFont, "Inter UI", Roboto, sans-serif`,
+    rubik: `'Rubik', sans-serif`,
+  },
+  fontWeights: {
+    body: 400,
+    heading: 500,
+  },
+  lineHeights: {
+    body: 1.5,
+    heading: 1.25,
+  },
+};
+
+export const defaultMaterialTheme = createTheme({
   palette: {
     primary: {
       main: '#556cd6',

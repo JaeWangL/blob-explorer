@@ -9,7 +9,7 @@ import { CacheProvider, EmotionCache, Global } from '@emotion/react';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import config from '@configs/seo.json';
-import { defaultTheme, globalStyles } from '@lib/styles';
+import { defaultMaterialTheme, globalStyles } from '@lib/styles';
 import { createEmotionCache } from '@utils/index';
 
 type MyAppProps = {
@@ -51,7 +51,7 @@ function MyApp(props: MyAppProps): JSX.Element {
     router.events.on('routeChangeComplete', handleRouteChangeEnd);
     router.events.on('routeChangeError', handleRouteChangeEnd);
 
-    return () => {
+    return (): void => {
       router.events.off('routeChangeStart', handleRouteChangeStart);
       router.events.off('routeChangeComplete', handleRouteChangeEnd);
       router.events.off('routeChangeError', handleRouteChangeEnd);
@@ -65,7 +65,7 @@ function MyApp(props: MyAppProps): JSX.Element {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="manifest" href="/site.webmanifest" key="site-manifest" />
       </NextHead>
-      <ThemeProvider theme={defaultTheme}>
+      <ThemeProvider theme={defaultMaterialTheme}>
         <RecoilRoot>
           {/* TODO: Add `Dev tools` and `ExternalStatePortal` for Recoil */}
           <CssBaseline />

@@ -9,7 +9,7 @@ const HomePage: NextPage = () => (
   </MainLayout>
 );
 
-export const getStaticProps = async ({ locale }: { locale: string }) => ({
+export const getStaticProps = async ({ locale }: { locale: string }): Promise<any> => ({
   props: {
     ...(await serverSideTranslations(locale, ['common'])),
   },
