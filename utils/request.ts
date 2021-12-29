@@ -6,7 +6,7 @@ const noCache = setupCache({ maxAge: 0 });
 
 export const localeClient = (disableCache = true): AxiosInstance =>
   Axios.create({
-    baseURL: 'api',
+    baseURL: 'http://localhost:3000/api',
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',

@@ -1,30 +1,33 @@
-import { useTranslation } from 'next-i18next';
-import { memo } from 'react';
-import IsEqual from 'react-fast-compare';
-import { useAllBlobs } from '@lib/services';
+import { useEffect, useState } from 'react';
+import { localeClient } from '@utils/index';
 
-type ContainerProps = {
+type ContainersProps = {
   containerName: string;
 };
 
-function Container(props: ContainerProps): JSX.Element {
+function Containers(props: ContainersProps): JSX.Element {
   const { containerName } = props;
-  const { t } = useTranslation('common');
-  const blobNames = useAllBlobs(containerName);
+  const [blobs, setBlobs] = useState<string[]>([]);
 
-  if (!blobNames) {
-    return <p>Loading ...</p>;
-  }
+  useEffect(() => {
+    const initAsync = async () => {
+      const res = await localeClient().get<string[]>(`getBlobs/${containerName}`);
+      setBlobs(res.data);
+    };
+
+    initAsync();
+  }, []);
+
   return (
     <div>
-      <p>{t('ok')}</p>
+      <p>{containerName}</p>
       <ul>
-        {blobNames.map((n) => (
-          <li>{n}</li>
+        {blobs.map((blob) => (
+          <li>{blob}</li>
         ))}
       </ul>
     </div>
   );
 }
 
-export default memo(Container, IsEqual);
+export default Containers;
