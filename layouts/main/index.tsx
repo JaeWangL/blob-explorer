@@ -2,10 +2,11 @@ import { memo } from 'react';
 import IsEqual from 'react-fast-compare';
 import { useRecoilValueLoadable } from 'recoil';
 import { containerNamesSelector } from '@lib/recoil';
+import { CustomScrollBar } from '@components/index';
 import Footer from './footer';
 import Header from './header';
 import MenuLeft from './menuLeft';
-import { MainContainer, MainWrapper } from './styles';
+import { ContentContainer, InnerContainer, MainContainer, MainWrapper } from './styles';
 
 type MainLayoutProps = {
   children: JSX.Element;
@@ -26,8 +27,14 @@ function MainLayout(props: MainLayoutProps): JSX.Element {
     <>
       <Header />
       <MainWrapper className="wrapper">
-        <MenuLeft isShow />
-        <MainContainer isShowMenu>{children}</MainContainer>
+        <MenuLeft isShow={false} />
+        <MainContainer isShowMenu={false}>
+          <CustomScrollBar>
+            <ContentContainer>
+              <InnerContainer>{children}</InnerContainer>
+            </ContentContainer>
+          </CustomScrollBar>
+        </MainContainer>
       </MainWrapper>
       {showFooter && <Footer />}
     </>
