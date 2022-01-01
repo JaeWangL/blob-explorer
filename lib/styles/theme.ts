@@ -25,6 +25,20 @@ export const defaultTheme = {
     body: 1.5,
     heading: 1.25,
   },
+  radii: {
+    sm: '3px',
+    md: '6px',
+    lg: '8px',
+    rounded: '4px',
+    circle: '50%',
+    pill: '500px',
+  },
+  shadows: {
+    default: '0 0 12px 3px rgba(0, 0, 0, 0.06)',
+    sm: '0px -1px 1px 0px rgba(0,0,0, .2)',
+    lg: '0 1rem 3rem rgba(0, 0, 0, .175)',
+    input: '0 0 0 0.2rem rgb(1 104 250 / 25%)',
+  },
   transition: 'all 0.4s ease 0s',
 };
 
