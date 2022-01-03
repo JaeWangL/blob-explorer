@@ -87,8 +87,8 @@
       "@configs/*": [
         "configs/*"
       ],
-      "@containers/*": [
-        "containers/*"
+      "@features/*": [
+        "features/*"
       ],
       "@layouts/*": [
         "layouts/*"
@@ -103,6 +103,7 @@
     "debug": true,
     "include": [
       "components",
+      "features",
       "lib",
       "pages"
     ],
