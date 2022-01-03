@@ -1,7 +1,7 @@
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import Container from '@containers/container';
+import Container from '@features/container';
 import { MainLayout } from '@layouts/index';
 
 const ContainerPage: NextPage = () => {

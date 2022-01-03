@@ -11,6 +11,6 @@ export const localeClient = (disableCache = true): AxiosInstance =>
       Accept: 'application/json',
       'Content-Type': 'application/json',
     },
-    timeout: 0, // 20000,
+    timeout: 20000,
     adapter: disableCache ? noCache.adapter : cache.adapter,
   });

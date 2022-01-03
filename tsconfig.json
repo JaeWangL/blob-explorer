@@ -27,8 +27,8 @@
       "@configs/*": [
         "configs/*"
       ],
-      "@containers/*": [
-        "containers/*"
+      "@features/*": [
+        "features/*"
       ],
       "@layouts/*": [
         "layouts/*"
@@ -49,6 +49,7 @@
     "**/*.js"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "next.config.js"
   ]
 }
