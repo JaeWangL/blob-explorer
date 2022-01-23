@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { colors } from '@lib/styles';
 
-export const StyledMedia = styled.div`
+export const StyledMedia = styled.a`
   position: relative;
   padding: 10px 12px;
   background-color: ${colors.gray900};
@@ -25,18 +25,18 @@ export const StyledMediaBody = styled.div`
 
   h6 {
     margin-bottom: 1px;
+    color: ${colors.gray300};
   }
   span {
     font-size: 12px;
     color: ${colors.text3};
     display: block;
   }
-`;
 
-export const StyledAnchor = styled.a`
-  color: ${colors.gray300};
   &:hover,
   &:focus {
-    color: ${colors.white};
+    h6 {
+      color: ${colors.white};
+    }
   }
 `;
