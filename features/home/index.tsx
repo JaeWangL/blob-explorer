@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
 import { memo } from 'react';
 import IsEqual from 'react-fast-compare';
@@ -13,13 +12,10 @@ function Home(): JSX.Element {
 
   return (
     <div>
-      <Link href="/container/cheongmac" passHref>
-        <p>{t('ok')}</p>
-      </Link>
       <Grid container spacing={1}>
         {containerNames.map((containerName) => (
           <Grid key={containerName} item xs={12} sm={4} lg={3}>
-            <FolderPreview name={containerName} href="/" filesCount={10} sizeMb={12400} />
+            <FolderPreview name={containerName} href={`/container/${containerName}`} filesCount={10} sizeMb={12400} />
           </Grid>
         ))}
       </Grid>
